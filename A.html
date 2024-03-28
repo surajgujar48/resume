@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Button</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Additional CSS for centering the card and hover effect */
+        body {
+            background-color: rgb(0, 0, 43); /* Dark blue background */
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-primary {
+            transition: background-color 0.3s, border-color 0.3s, transform 0.3s, color 0.3s;
+            animation: pulse 2s infinite alternate;
+            background-color: #61DBFB; /* Light blue */
+            border-color: #61DBFB; /* Same color as background for a uniform appearance */
+            color: #333; /* Dark gray */
+        }
+
+        .btn-primary:hover {
+            background-color: rgb(0, 0, 43); /* Dark blue */
+            border-color: rgb(0, 0, 43); /* Dark blue */
+            color: #fff; /* White text color on hover */
+            transform: scale(1.1);
+        }
+
+        .card-body {
+            background-color: green; /* Green background color for the card body */
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">My Updated Resume</h5>
+                        <p class="card-text">Click the button below to download your resume PDF file.</p>
+                        <button onclick="downloadFile()" class="btn btn-primary">Download</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function downloadFile() {
+            // Replace 'https://example.com/path/to/your/resume.pdf' with the actual URL of your PDF file
+            var fileUrl = 'resume.PDF';
+            
+            // Create a temporary anchor element
+            var link = document.createElement('a');
+            link.href = fileUrl;
+            
+            // Set the download attribute to indicate download behavior
+            link.download = 'resume.PDF';
+            
+            // Append the anchor to the body and trigger the click event
+            document.body.appendChild(link);
+            link.click();
+            
+            // Clean up
+            document.body.removeChild(link);
+        }
+    </script>
+
+    <!-- Bootstrap JS and dependencies (if required) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
